@@ -10,6 +10,7 @@ Created on Wed Oct  9 23:13:19 2019
 
 import sys
 import ctypes
+import timeit
 
 
 class DynamicArray():
@@ -28,7 +29,7 @@ class DynamicArray():
             return IndexError('i is out of bounds')
 
         print()
-        return "Item at index {} is {}".format(i, self.A[i])
+        print("Item at index {} is {}".format(i, self.A[i]))
 
     def additem(self, item):
 
@@ -38,7 +39,7 @@ class DynamicArray():
 
         self.A[self.n] = item
         self.n += 1
-        return "{} added in array".format(item)
+        print("{} added in array".format(item))
 
     def _resize(self, new_cap):
 
@@ -58,19 +59,7 @@ class DynamicArray():
 arr = DynamicArray()
 
 arr._len
-print(arr.additem(3))
-print(arr.additem(5))
+arr.additem(3)
+arr.additem(5)
 
-print(arr.getitem(1))
-
-
-
-
-
-
-
-
-
-
-
-
+arr.getitem(1)
