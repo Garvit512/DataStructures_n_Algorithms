@@ -26,6 +26,7 @@ def anagram(S1, S2):
         print("Yes it is anagram")
 
 
+
 S1 = "public relations"
 S2 = "crap built on lies"
 obj = anagram(S1, S2)
