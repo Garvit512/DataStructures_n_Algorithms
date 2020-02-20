@@ -6,7 +6,7 @@ Created on Fri Feb 14 11:18:26 2020
 @author: garvit
 """
 
-#NOTE:- Refer finder() function under "SinglyLinkedList" class for the solution of problem
+#NOTE:- Refer Nth_finder() & Nth_finder_HT() function under "SinglyLinkedList" class for the solution of problem
 
 class Node:
 
@@ -203,7 +203,7 @@ class SinglyLinkedList:
         print('--------------------------')
         return "LinkedList Deleted"
 
-    def finder(self, loc):
+    def Nth_finder(self, loc):  # Brute Force Approach
         L = self.length
         to_find = loc
         till = L - to_find
@@ -218,6 +218,25 @@ class SinglyLinkedList:
             print("Desired Location doesn't Exists")
         return '---------------------------------------'
 
+    def Nth_finder_HT(self, loc):  # Hash Table Approach
+        L = self.length
+        ittr = self.head
+        to_find = loc
+        till = L - to_find
+        HashTable = {}
+        index = 0
+        while ittr is not None:
+            HashTable.update({index: ittr})
+            ittr = ittr.getNext()
+            index += 1
+
+        if till >= 0:
+            print(f"Desired Location Value: {HashTable.get(till).getData()}")
+        else:
+            print("Desired Location doesn't Exists")
+
+        return '---------------------------------------'
+
 
 linkedList = SinglyLinkedList()
 
@@ -229,9 +248,12 @@ print(linkedList.insertAtLast(12))
 print(linkedList.insertAtLast(22))
 print(linkedList.insertAtLast(73))
 
-print(linkedList.printListwithSize())
+# print(linkedList.printListwithSize())
 
-print(linkedList.finder(7))
+print(linkedList.Nth_finder(7))
+print(linkedList.Nth_finder_HT(7))
 
-print(linkedList.deleteLinkedList())
+# print(linkedList.finder(7))
+
+# print(linkedList.deleteLinkedList())
 
