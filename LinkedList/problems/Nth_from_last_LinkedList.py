@@ -203,7 +203,7 @@ class SinglyLinkedList:
         print('--------------------------')
         return "LinkedList Deleted"
 
-    def Nth_finder(self, loc):  # Brute Force Approach
+    def Nth_finder(self, loc):  # Single Scan Approach (Brute Force Approach if Length was not pre-calculated)
         L = self.length
         to_find = loc
         till = L - to_find
